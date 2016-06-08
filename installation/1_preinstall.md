@@ -1,3 +1,4 @@
+```
 Find a repo for Centos 6.5 for Mysql5.5.
 	wget http://rpms.remirepo.net/enterprise/remi.repo
 	yum --enablerepo=remi install mysql-server
@@ -45,8 +46,24 @@ Install Cloudera repo (on bc1)
 	Resized.
 	All Green.
 	
+Installing Hive:
+        Installing HiveServer2. Did not have mysql connector deployed, nor databases (for more services) and user in place
+        Used tmux and some shell scripting with the list of nodes to pull and push to all the nodes the jar (just in case)
+        Green, with one warning. Missing ZK. Will address.
+        ZK: 
+                Placed on the 2 masters and one DN. Only 2 masters :)
+                No dedicated spindle for it
+                Overcommit warning: up'ed the threshold to 0.9
+                In the second case (another overcommit of another node), suppressed.
+                Went to Hive and fixed the dependency. Deploy stale client conf. Restart stale services. Rolling restart is not available :)
+                All green.
+Installing Oozie:
+        Made to depend on YARn, Hive,HDFS and ZK
+        Create Oozie database.
+        Although unortodox, I've placed it on a DN to not carry adding stuff to the masters.
+        Green. (btw, green as in untested green, happy oblivion)
 
-	
-
-		
-
+Installing Hue:
+        Same as above. Small cluster. share of resources.
+        Green
+```
