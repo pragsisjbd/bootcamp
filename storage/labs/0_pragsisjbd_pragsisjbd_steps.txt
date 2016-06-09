@@ -1,0 +1,35 @@
+` ` `
+Replicate to another cluster:
+	Created my github handle pragsisjbd from Hue to create my home
+	Copied dirs will go from on emy owned dirs to another dir owned by me /user/pragsisjbd/rep_src/ to /user/pragsis/rep_dst/
+	Logged out of admin from Hue, in with my user
+	created the dirs with it
+	Went to CM -> Backup -> Replication schedules -> Create schedule -> HDFS rep. Noticed I possibly need a peer.
+	Adding a peer:
+		* Add myself (CM) as peer
+		* It warns no TLS
+		* myself:7180 as peer. Passed to testing. Connected.
+		* Added relative directory as source and destination. 
+		* Failed with "rep_src" doesn't exist. hdfs dfs'ed it. It is there.
+		* Saw log in Actions -> show history. Also has dry run (interesting).
+		* Trying with full dir (/user/pragsisjbd/{rep_src,rep_dst})
+		* Action -> Edit
+		* Cannot edit source dir -> Changed destination to full dir
+		* Tried "Run Now". Failed.
+		* Created a new one. Disabled this one.
+		* Run with full dirs on source and destination ends and now, although no data, it is green.
+		* Created a dummy file in /tmp/ and put'ed it to HDFS to rep_src
+		* ACtions -> Run Now.
+		* Green. Now I have a rep_src in a rep_dir and inside my dummy file
+		* If you click on the time it was executed, you get a report on what happened
+	Using Teragen to create 1 GB of source to move:
+		* Created 1K rows, and it has written 100000 bytes (about 10K)
+		* Tried 1K MM rows
+		* sudo -u hdfs hadoop jar hadoop-examples.jar teragen 1 /user/pragsisjbd/rep_src/teragen -> writes 100bytes
+		* 1GB =~ 1 000 000 000 bytes, then about 10000000  should be 1GB
+		* sudo -u hdfs hdfs dfs -du -h /user/pragsisjbd/rep_src/teragen/
+		  476.8 M  1.4 G  /user/pragsisjbd/rep_src/teragen/part-m-00000
+		  476.8 M  1.4 G  /user/pragsisjbd/rep_src/teragen/part-m-00001
+		* Replicated fine and screenie submitted
+` ` ` 
+
