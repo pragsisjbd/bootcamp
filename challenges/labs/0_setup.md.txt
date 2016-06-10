@@ -1,0 +1,31 @@
+
+
+```
+* Redhat release
+
+# more /etc/redhat-release 
+CentOS release 6.5 (Final)
+
+# yum repolist enabled
+Loaded plugins: fastestmirror, presto
+Loading mirror speeds from cached hostfile
+ * base: ftp.heanet.ie
+ * extras: ftp.heanet.ie
+ * updates: ftp.heanet.ie
+repo id                                                                                                                                              repo name                                                                                                                                                           status
+base                                                                                                                                                 CentOS-6 - Base                                                                                                                                                     6,696
+cloudera-manager                                                                                                                                     Cloudera Manager, Version 5.7.1                                                                                                                                         7
+extras                                                                                                                                               CentOS-6 - Extras                                                                                                                                                      60
+updates                                                                                                                                              CentOS-6 - Updates                                                                                                                                                    115
+repolist: 6,878
+
+Public IP of the node that will hold MySQL:
+54.171.203.32 ec2-54-171-203-32.eu-west-1.compute.amazonaws.com ex1
+
+ls /etc/yum.repos.d
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo  CentOS-Vault.repo  cloudera-manager.repo
+
+# grep -e cameron -e johnson /etc/passwd                                                                                              # grep -e cameron -e johnson /etc/passwd
+cameron:x:2500:2500::/home/cameron:/bin/false                                                                                                                  johnson:x:2501:2501::/home/johnson:/bin/false                                                                                                                  # grep -e leave -e remain /etc/group                                                                                                  leave:x:2502:johnson                                                                                                                                           remain:x:2503:cameron  
+
+```
