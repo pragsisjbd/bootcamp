@@ -1,0 +1,19 @@
+```
+* Node that will be host of CM: 
+	54.171.6.161 ec2-54-171-6-161.eu-west-
+1.compute.amazonaws.com ex7
+
+* CM repo file:
+	[cloudera-manager]
+	# Packages for Cloudera Manager, Version 5, on RedHat or 	CentOS 6 x86_64                  
+	name=Cloudera Manager
+	baseurl=https://archive.cloudera.com/cm5/redhat/6/x86_	64/cm/5.5.4/
+	gpgkey =https://archive.cloudera.com/cm5/redhat/6/x86_	64/cm/RPM-GPG-KEY-cloudera    
+	gpgcheck = 1
+
+*  /etc/default/cloudera-scm-server says the default permgen size is 256MB:
+	export CMF_JAVA_OPTS="-Xmx2G -XX:MaxPermSize=256m -XX:	+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp"
+
+*  The CM file db.properties is created by 	/usr/share/cmf/schema/scm_prepare_database.sh
+
+```
