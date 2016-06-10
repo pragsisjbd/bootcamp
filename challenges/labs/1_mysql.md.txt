@@ -1,0 +1,48 @@
+```
+# yum repolist enabled
+	Loaded plugins: fastestmirror, presto
+	Loading mirror speeds from cached hostfile
+	 * base: ftp.heanet.ie
+	 * extras: ftp.heanet.ie
+	 * updates: ftp.heanet.ie
+	repo id                                                                                                                                             	      repo name                                                                                                                                                      status
+	base                                                                                                                                                      	CentOS-6 - Base                                                                                                                                                6,696
+	cloudera-manager                                                                                                                            	              	Cloudera Manager, Version 5.7.1                                                                                                                                    7
+	extras                                                                                                                                      	              	CentOS-6 - Extras                                                                                                                                                 60
+	mysql-connectors-community                                                                                                                  	              	MySQL Connectors Community                                                                                                                                        21
+	mysql-tools-community                                                                                                                               	      MySQL Tools Community                                                                                                                                             35
+	updates                                                                                                                                             	      CentOS-6 - Updates                                                                                                                    	                           115
+	repolist: 6,934
+
+
+
+With that community repo: 
+	After disabling the 5.7 repo,
+	yum --enablerepo=mysql55-community install mysql
+	yum --enablerepo=mysql55-community install mysql-community-clients
+
+
+Download from dev.mysql.com the client, untar it, and upload to all servers to /usr/share/java and symlink to the jar with the version stripped off.
+
+
+# mysql --version
+mysql  Ver 14.14 Distrib 5.5.50, for Linux (x86_64) using readline 5.1
+
+# mysql -uroot -hlocalhost -p -e "show schemas"
+Enter password: 
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| HMS                |
+| HUE                |
+| mysql              |
+| oozie              |
+| performance_schema |
+| rman               |
+| scm                |
++--------------------+
+
+
+
+```
