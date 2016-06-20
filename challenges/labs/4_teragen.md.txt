@@ -1,0 +1,16 @@
+```
+* Teragen command: sudo -u cameron time hadoop jar hadoop-examples.jar teragen -D dfs.blocksize=$(( 48 * 1024 * 1024 )) 51200000 tgen48
+* time's output:
+	5.20user 0.64system 1:20.62elapsed 7%CPU (0avgtext+0avgdata 164980maxresident)k
+	0inputs+1072outputs (0major+62219minor)pagefaults 0swaps
+* Output of the listing of the teragen run:
+	sudo -u cameron hdfs dfs -ls /user/cameron/tgen48
+	Found 3 items
+	-rw-r--r--   3 cameron default          0 2016-06-20 11:49 /user/cameron/tgen48/_SUCCESS
+	-rw-r--r--   3 cameron default 2560000000 2016-06-20 11:49 /user/cameron/tgen48/part-m-00000
+	-rw-r--r--   3 cameron default 2560000000 2016-06-20 11:49 /user/cameron/tgen48/part-m-00001
+* How many blocks where created for this HDFS file: 
+	# sudo -u cameron hdfs fsck /user/cameron/tgen48 | grep "Total blocks"
+	 Total blocks (validated):      102 (avg. block size 50196078 B)
+
+```
