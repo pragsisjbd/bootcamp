@@ -1,0 +1,12 @@
+```
+* The kinit's for cameron and johnson are in their runs of teragen and pi's output.
+* klist:
+# klist
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: johnson@PRAGSISJBD.UK
+
+Valid starting     Expires            Service principal
+06/23/16 18:26:20  06/24/16 18:26:20  krbtgt/PRAGSISJBD.UK@PRAGSISJBD.UK
+        renew until 06/30/16 18:26:20
+
+```
